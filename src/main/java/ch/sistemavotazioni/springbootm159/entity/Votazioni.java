@@ -27,6 +27,4 @@ public class Votazioni {
   @Column(name = "autore", length = 100)
   private String autore;
 
-//  @OneToMany(mappedBy = "idVotazione") private Set<Risultati> risultatis = new LinkedHashSet<>();
-
 }
