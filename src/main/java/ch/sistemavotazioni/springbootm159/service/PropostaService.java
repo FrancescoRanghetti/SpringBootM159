@@ -4,6 +4,8 @@ import ch.sistemavotazioni.springbootm159.entity.Proposta;
 import ch.sistemavotazioni.springbootm159.repository.ProposteRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PropostaService {
     final ProposteRepository proposteRepository;
@@ -14,5 +16,9 @@ public class PropostaService {
 
     public Proposta saveProposte(Proposta proposta) {
        return proposteRepository.save(proposta);
+    }
+
+    public List<Proposta> getAll() {
+        return proposteRepository.findAll();
     }
 }
