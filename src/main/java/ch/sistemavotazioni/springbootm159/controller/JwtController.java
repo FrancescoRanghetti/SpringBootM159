@@ -32,7 +32,7 @@ public class JwtController {
   @GetMapping("/expiredJwt/{token}")
   public ResponseEntity<Map<String, String>> expiredJwt(@PathVariable final String token) {
     Map response = new HashMap<>();
-    response.put("token", jwtService.expiredJwt(token));
+    response.put("token", "");
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 }

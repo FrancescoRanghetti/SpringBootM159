@@ -45,6 +45,13 @@ public class JwtService {
 
   public boolean isValidToken(String token, String username, String role) {
     try {
+      if (token == null || token.isEmpty()) {
+        throw new IllegalArgumentException("Token is null or empty");
+      }
+      String[] tokenParts = token.split("\\.");
+      if (tokenParts.length < 3) {
+        throw new IllegalArgumentException("Invalid token format: missing parts");
+      }
       Claims claims = decodeJWT(token);
       if (claims.getSubject().equals(username) && claims.get("role").equals(role) && !isJwtExpired(token)) {
         log.info("Token valid");
@@ -60,13 +67,5 @@ public class JwtService {
     Claims claims = decodeJWT(token);
     Date expiresAt = claims.getExpiration();
     return expiresAt.before(new Date());
-  }
-
-  public String expiredJwt(String token) {
-    Date now = new Date();
-    Claims claims = decodeJWT(token);
-    claims.setExpiration(now);
-    return token;
-//    return new String(Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.RS256, jwtConfiguration.getPrivateKey()).compact());
   }
 }

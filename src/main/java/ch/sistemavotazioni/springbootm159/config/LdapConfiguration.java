@@ -22,13 +22,13 @@ class LdapConfiguration {
 
   @Bean
   public LdapContextSource contextSource() {
-    return new DefaultSpringSecurityContextSource("ldap://192.168.208.200:389/CN=Users,DC=votazioniSpai,DC=local");
+    return new DefaultSpringSecurityContextSource("ldap://192.168.0.200:389/CN=Users,DC=votazioniSpai,DC=local");
   }
 
   @Bean
   public LdapTemplate ldapTemplate() {
     LdapContextSource contextSource = new LdapContextSource();
-    contextSource.setUrl("ldap://192.168.208.200:389");
+    contextSource.setUrl("ldap://192.168.0.200:389");
     contextSource.setBase("CN=Users,DC=votazioniSpai,DC=local");
     contextSource.setUserDn("pippo bello");
     contextSource.setPassword("nonAdmin1234");
