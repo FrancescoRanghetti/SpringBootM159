@@ -39,8 +39,6 @@ public class ProposteRestController {
 
   @PostMapping("/deletePropose")
   public void deletePropose(@RequestBody Proposta proposta) {
-    System.out.println("entra");
     proposteService.deteleProposta(proposta);
-    System.out.println(proposteService.getAll());
   }
 }

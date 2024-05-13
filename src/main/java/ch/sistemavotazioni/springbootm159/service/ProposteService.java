@@ -32,7 +32,6 @@ public class ProposteService {
   }
 
   public void deteleProposta(Proposta proposta) {
-    System.out.println("entra qua");
     proposteRepository.delete(proposta);
   }
 }

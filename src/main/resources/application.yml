@@ -43,4 +43,4 @@ spring:
         -----END PRIVATE KEY-----
       issuer: localhost:3200
       algorithm: RS256
-      expiration-time: 10m
+      expiration-time: 120m

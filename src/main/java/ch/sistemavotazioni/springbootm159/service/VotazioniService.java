@@ -26,5 +26,4 @@ public class VotazioniService {
   public void deleteNow(int id) {
     votazioniRepository.deleteById(id);
   }
-
 }
